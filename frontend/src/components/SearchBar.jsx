@@ -23,8 +23,7 @@ export default function SearchBar() {
   // API call to fetch results
   useEffect(() => {
     if (debouncedQuery.length >= 3) {
-      axios
-        .get(`http://localhost:5000/api/students?q=${debouncedQuery}`)
+      axios.get(`${import.meta.env.VITE_API_URL}/api/students?q=${debouncedQuery}`)
         .then((res) => setResults(res.data));
     } else {
       setResults([]);
